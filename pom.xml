@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <groupId>trs.com.cn</groupId>
+        <artifactId>season-parent</artifactId>
+        <version>2.1-SNAPSHOT</version>
+    </parent>
+
+    <!--添加打包格式-->
+    <packaging>war</packaging>
+
+    <groupId>anonymous.com.cn</groupId>
+    <artifactId>admin</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <modelVersion>4.0.0</modelVersion>
+
+
+
+    <dependencies>
+        <dependency>
+            <groupId>trs.com.cn</groupId>
+            <artifactId>season-core</artifactId>
+            <version>2.1-SNAPSHOT</version>
+        </dependency>
+
+        <!-- swagger文档依赖  start-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>trs.com.cn</groupId>
+            <artifactId>season-swagger-ui</artifactId>
+            <version>1.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-bean-validators</artifactId>
+            <version>2.7.0</version>
+        </dependency>
+        <!-- swagger文档依赖  end-->
+
+        <!--redis start-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <!--redis start-->
+
+        <!-- quartz start -->
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+            <version>2.2.2</version>
+        </dependency>
+        <!-- quartz end -->
+
+        <!--添加 测试用例依赖 start-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <!--添加 测试用例依赖 end -->
+
+    </dependencies>
+
+    <!--添加仓库地址 start-->
+    <repositories>
+        <repository>
+            <id>haier-maven-repository</id>
+            <url>http://test.haier.com/nexus/content/groups/public/</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>haier-maven-plugin-repository</id>
+            <url>http://test.haier.com/nexus/content/groups/public/</url>
+        </pluginRepository>
+    </pluginRepositories>
+    <distributionManagement>
+        <repository>
+            <id>qdtrs-release</id>
+            <name>qdtrs Release Repository</name>
+            <url>http://test.haier.com/nexus/content/repositories/qdtrs-release/</url>
+        </repository>
+        <snapshotRepository>
+            <id>qdtrs-snapshot</id>
+            <name>qdtrs Snapshot Repository</name>
+            <url>http://test.haier.com/nexus/content/repositories/qdtrs-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+    <!--添加仓库地址 end-->
+
+    <build>
+        <finalName>admin</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+                <version>2.17</version>
+            </plugin>
+            <plugin>
+                <groupId>com.juvenxu.portable-config-maven-plugin</groupId>
+                <artifactId>portable-config-maven-plugin</artifactId>
+                <version>1.1.60-SNAPSHOT</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>replace-package</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

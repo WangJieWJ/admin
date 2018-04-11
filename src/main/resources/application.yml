@@ -1,0 +1,13 @@
+spring:
+    profiles:
+        active: local
+server:
+    context-path: /admin
+season:
+    swagger:
+        basePackage: com.admin
+        title: Admin
+        description: <b>Admin在线文档</b><br/>
+        version: 1.0-SNAPSHOT
+        contactName: 王杰
+        contactEmail: 1152689483@qq.com
