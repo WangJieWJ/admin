@@ -1,5 +1,6 @@
 package com.admin.pojo;
 
+import com.admin.pojo.base.BasePojo;
 import com.season.orm.dao.annotation.TableInfo;
 import com.season.orm.dao.annotation.Transient;
 
@@ -15,7 +16,7 @@ import java.util.Date;
  * Create Time:2018/4/11 19:40
  */
 @TableInfo(tableName = "admin_media_manager_log")
-public class AdminMediaManagerLog {
+public class AdminMediaManagerLog extends BasePojo{
     /**
      * 素材类型:1-上传图片文件获取的URL地址;2-上传素材获取素材Id;3-用户输入的图片素材获取素材Id
      */

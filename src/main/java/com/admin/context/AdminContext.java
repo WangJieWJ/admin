@@ -1,5 +1,6 @@
 package com.admin.context;
 
+import com.admin.pojo.AdminOperationLogInfo;
 import com.admin.pojo.AppUser;
 
 /**
@@ -31,18 +32,18 @@ public class AdminContext {
         return threadLocal.get();
     }
 
-    //保存开始时间
-    private static final ThreadLocal<Long> operationStartTimeThreadLocal = new ThreadLocal<>();
+    //系统操作日志
+    private static final ThreadLocal<AdminOperationLogInfo> operationLogInfoThreadLocal = new ThreadLocal<>();
 
-    public static void setOperationStartTime(Long startTime) {
-        operationStartTimeThreadLocal.set(startTime);
+    public static void setOperationLogInfo(AdminOperationLogInfo adminOperationLogInfo) {
+        operationLogInfoThreadLocal.set(adminOperationLogInfo);
     }
 
-    public static void removeOperationStartTime() {
-        operationStartTimeThreadLocal.remove();
+    public static void removeOperationLogInfo() {
+        operationLogInfoThreadLocal.remove();
     }
 
-    public static Long getConsumeTime() {
-        return (System.currentTimeMillis() - operationStartTimeThreadLocal.get());
+    public static AdminOperationLogInfo getOperationLogInfo() {
+        return operationLogInfoThreadLocal.get();
     }
 }
