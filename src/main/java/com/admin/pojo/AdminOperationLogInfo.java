@@ -26,9 +26,15 @@ public class AdminOperationLogInfo extends BasePojo {
      */
     private Integer logType;
     /**
+     * 文件上传
+     */
+    public static final Integer LOG_TYPE_1 = 1;
+    /**
      * 操作日志描述
      */
     private String desc;
+
+    public static final String DESC_1 = "文件上传";
     /**
      * 调用链接
      */

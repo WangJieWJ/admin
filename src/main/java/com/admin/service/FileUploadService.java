@@ -93,7 +93,7 @@ public class FileUploadService {
             adminMediaManagerLog.setMediaId("");
             adminMediaManagerLogService.syncSave(adminMediaManagerLog);
 
-            return "SUCCESS";
+            return tempFile.getAbsolutePath();
         } catch (Exception e) {
             logger.error("【print by wangjie】上传文件失败", e);
             resultJson.put("errorMsg", "文件上传失败,请稍后重试");
