@@ -15,7 +15,7 @@ import io.swagger.annotations.ApiOperation;
  * Author: 王杰
  * Create Time:2018/4/11 19:27
  */
-@Api(tags = "adminSystemConfig")
+@Api(tags = "adminSystemConfig",description = "系统配置项")
 public interface AdminSystemConfigApi {
 
     @ApiOperation(value = "查询配置值")

@@ -5,9 +5,14 @@ server:
     context-path: /admin
 season:
     swagger:
-        basePackage: com.admin
+        basePackage: com.admin,com.season.admin
         title: Admin
         description: <b>Admin在线文档</b><br/>
         version: 1.0-SNAPSHOT
         contactName: 王杰
         contactEmail: 1152689483@qq.com
+    # season-admin的默认配置
+    shiro:
+        realmClass: com.season.admin.shiro.IdsUserRealm
+    admin:
+        adminRoleEnName: admin #多个可以使用逗号隔开

@@ -15,7 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
  * Author: 王杰
  * Create Time:2018/4/11 17:22
  */
-@Api(tags = "upload")
+@Api(tags = "upload",description = "文件上传公共类")
 public interface FileUploadApi {
 
     @ApiOperation(value = "文件上传服务测试")
