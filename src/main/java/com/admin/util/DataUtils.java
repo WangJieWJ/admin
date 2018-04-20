@@ -3,6 +3,7 @@ package com.admin.util;
 import com.season.common.DateKit;
 
 import java.util.Date;
+import java.util.Random;
 
 /**
  * Title:
@@ -23,4 +24,27 @@ public class DataUtils {
         return "/" + DateKit.getDateStr(new Date()).replaceAll("-", "/") + "/";
     }
 
+
+    /**
+     * 获取请求唯一的TraceId
+     */
+    public static String getUniqueTraceId() {
+        return System.currentTimeMillis() + getRandomStr(6);
+    }
+
+    /**
+     * 获取随机字符串
+     *
+     * @param size 随机串的大小
+     */
+    private static String getRandomStr(int size) {
+        String base = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        Random random = new Random();
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < size; i++) {
+            int number = random.nextInt(base.length());
+            sb.append(base.charAt(number));
+        }
+        return sb.toString();
+    }
 }

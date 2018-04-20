@@ -4,7 +4,7 @@
     <!--console-->
     <appender name="console-log" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %5p ${PID:- } --- [%t] %-40.40logger{39} : %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%rEx}</pattern>
+            <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5p [%c] [%F:%L] - %X{traceId} - %msg%n</pattern>
             <charset>utf8</charset>
         </encoder>
     </appender>
@@ -14,7 +14,7 @@
         <Append>true</Append>
         <File>${LOG_PATH}/catalina.log</File>
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %5p ${PID:- } --- [%t] %-40.40logger{39} : %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%rEx}</pattern>
+            <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5p [%c] [%F:%L] - %X{traceId} - %msg%n</pattern>
             <charset>utf8</charset>
         </encoder>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">

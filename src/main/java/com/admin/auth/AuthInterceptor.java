@@ -3,7 +3,9 @@ package com.admin.auth;
 import com.admin.context.AdminContext;
 import com.admin.pojo.AdminOperationLogInfo;
 import com.admin.service.AdminOperationLogInfoService;
+import com.admin.util.DataUtils;
 import com.alibaba.fastjson.JSON;
+import org.jboss.logging.MDC;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +37,9 @@ public class AuthInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         // 判断当前请求是否允许
+        //存放traceId
+        MDC.put("traceId", DataUtils.getUniqueTraceId());
+        //日志保存
         AdminOperationLogInfo adminOperationLogInfo = new AdminOperationLogInfo();
         adminOperationLogInfo.setRequestCookie(JSON.toJSONString(request.getCookies()));
         adminOperationLogInfo.setOperationType(request.getMethod());
