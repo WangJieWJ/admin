@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Create Time:2018/4/11 19:28
  */
 @RestController
-@RequestMapping("/adminSystemConfig")
+@RequestMapping("adminSystemConfig")
 public class AdminSystemConfigController implements AdminSystemConfigApi {
 
     @Autowired

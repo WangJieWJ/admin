@@ -22,14 +22,14 @@ import org.springframework.web.multipart.MultipartFile;
  * Create Time:2018/4/11 17:23
  */
 @RestController
-@RequestMapping("/fileUpload")
+@RequestMapping("fileUpload")
 public class FileUploadController implements FileUploadApi {
 
     @Autowired
     private FileUploadService fileUploadService;
 
     @Override
-    @PostMapping(value = "/upload")
+    @PostMapping(value = "upload")
     public Result<String> uploadStoreMedia(@RequestParam("file") MultipartFile file) {
 
         if (file == null) {

@@ -15,7 +15,7 @@ import io.swagger.annotations.ApiOperation;
  * Author: 王杰
  * Create Time:2018/4/17 15:34
  */
-@Api(tags = "authApi")
+@Api(tags = "authApi", description = "系统管理Api")
 public interface AdminAuthApi {
 
     @ApiOperation(value = "新增角色")
@@ -105,14 +105,8 @@ public interface AdminAuthApi {
     })
     Result queryAllUser(String fuzzyMatchStr, Integer pageNo, Integer pageSize);
 
-    @ApiOperation(value = "查看用户的用户来源标签")
-    Result getUserFromTag();
-
     @ApiOperation(value = "查询当前用户可以查看的菜单")
     Result queryVisibleMenus();
-
-    @ApiOperation(value = "登录成功后调用，获取菜单、权限key、用户个人信息")
-    Result selfInformation();
 
     @ApiOperation(value = "启用用户")
     @ApiImplicitParams({
